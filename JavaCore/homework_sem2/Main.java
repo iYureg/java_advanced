@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import JavaCore.homework_sem2.Task1.EvensCounter;
+import JavaCore.homework_sem2.Task2.DifferenceFinder;
 
 /**
  * 1. Написать метод, возвращающий количество чётных элементов массива.
@@ -27,6 +28,11 @@ public class Main {
         // Task_1
         System.out.printf("Количество четных чисел в массиве: %s - : %d ", Arrays.toString(array),
                 EvensCounter.count(array));
+
+        // Task_2
+        System.out.printf("\nРазница между макс и мин элементами: %s -: %d ", Arrays.toString(array),
+                DifferenceFinder.find(array));
+
     }
 
 }
