@@ -5,6 +5,7 @@ import java.util.Random;
 
 import JavaCore.homework_sem2.Task1.EvensCounter;
 import JavaCore.homework_sem2.Task2.DifferenceFinder;
+import JavaCore.homework_sem2.Task3.NeighborChecker;
 
 /**
  * 1. Написать метод, возвращающий количество чётных элементов массива.
@@ -23,7 +24,7 @@ public class Main {
     public static void main(String[] args) {
         int[] array = new int[10];
         for (int i = 0; i < array.length; i++)
-            array[i] = r.nextInt(20);
+            array[i] = r.nextInt(5);
 
         // Task_1
         System.out.printf("Количество четных чисел в массиве: %s - : %d ", Arrays.toString(array),
@@ -32,6 +33,10 @@ public class Main {
         // Task_2
         System.out.printf("\nРазница между макс и мин элементами: %s -: %d ", Arrays.toString(array),
                 DifferenceFinder.find(array));
+
+        // Task_3
+        System.out.printf("\nЕсть ли соседние нули в массивеЖ %s -: %s ", Arrays.toString(array),
+                NeighborChecker.chekZero(array));
 
     }
 
