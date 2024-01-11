@@ -41,6 +41,7 @@ class Student {
         return list.stream()
                 .filter(student -> student.specialty.equals("Информатика") && getAverageGrade() > 4.5)
                 .sorted(Comparator.comparing(Student::getAverageGrade).reversed())
+                .limit(5)
                 .collect(Collectors.toList());
     };
 }
