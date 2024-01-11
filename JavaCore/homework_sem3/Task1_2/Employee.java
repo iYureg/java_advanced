@@ -31,6 +31,10 @@ public class Employee implements Comparable<Employee> {
         return this.salary;
     }
 
+    public void riseSalary() {
+        this.salary += this.salary / 10;
+    }
+
     @Override
     public int compareTo(Employee e) {
         return this.birthday.compareTo(e.birthday);

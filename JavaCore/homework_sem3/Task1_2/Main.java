@@ -25,10 +25,18 @@ public class Main {
         }
         System.out.println("=".repeat(30));
 
-        // task_1: встроенный компаратор сортерует по возрасту сотрудника
+        // task_1: встроенный метод (compareTo) сравнивает по возрасту сотрудника
         Collections.sort(employees, (e1, e2) -> e1.compareTo(e2));
 
         for (Employee employee : employees) {
+            System.out.println(employee.toString());
+        }
+        System.out.println("=".repeat(30));
+
+        // task_2:
+        employees.add(new Manager("BOSS", "2006-11-11", 1000000));
+        for (Employee employee : employees) {
+            employee.riseSalary();
             System.out.println(employee.toString());
         }
     }
