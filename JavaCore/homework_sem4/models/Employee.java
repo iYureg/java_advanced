@@ -1,17 +1,25 @@
-package Task1_2;
+package models;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import sorces.Gender;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@Data
+@AllArgsConstructor
 public class Employee implements Comparable<Employee> {
     protected String name;
     protected LocalDate birthday;
     protected double salary;
+    protected Gender gender;
 
-    public Employee(String name, String birthday, double salary) {
+    public Employee(String name, String birthday, double salary, String gender) {
         this.name = name;
         this.setBirthday(birthday);
         this.salary = salary;
+        this.setGender(gender);
     }
 
     protected void setBirthday(String date) {
@@ -27,12 +35,20 @@ public class Employee implements Comparable<Employee> {
         return LocalDate.now().getYear() - birthday.getYear();
     }
 
-    public double getSalary() {
-        return this.salary;
-    }
-
     public void riseSalary() {
         this.salary += this.salary / 10;
+    }
+
+    public void setGender(String gender) {
+        if (gender.toLowerCase().equals("ж") || gender.toLowerCase().equals("f"))
+            this.gender = Gender.FEMALE;
+        else if (gender.toLowerCase().equals("м") || gender.toLowerCase().equals("m"))
+            this.gender = Gender.MALE;
+        else this.gender = null;
+    }
+
+    public String getGender() {
+        return this.gender.getGender();
     }
 
     @Override
@@ -40,8 +56,4 @@ public class Employee implements Comparable<Employee> {
         return this.birthday.compareTo(e.birthday);
     }
 
-    @Override
-    public String toString() {
-        return String.format("Name: %s, age: %d salary: %s", this.name, this.getAge(), this.getSalary());
-    }
 }

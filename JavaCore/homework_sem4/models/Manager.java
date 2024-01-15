@@ -1,4 +1,6 @@
-package Task1_2;
+package models;
+
+import models.Employee;
 
 // Опишите класс руководителя, наследник от сотрудника. Перенесите статический
 // метод повышения зарплаты в класс руководителя,
@@ -9,8 +11,8 @@ package Task1_2;
 // Повысьте зарплату всем сотрудникам и проследите, чтобы зарплата руководителя
 // не повысилась.
 public class Manager extends Employee {
-    public Manager(String name, String birthday, double salary) {
-        super(name, birthday, salary);
+    public Manager(String name, String birthday, double salary, String gender) {
+        super(name, birthday, salary, gender);
     }
 
     @Override

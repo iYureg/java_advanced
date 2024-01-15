@@ -1,4 +1,4 @@
-package JavaCore.homework_sem3.Task1_2;
+package Task1_2;
 
 import java.util.ArrayList;
 import java.util.Collections;
