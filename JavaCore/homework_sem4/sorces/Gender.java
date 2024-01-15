@@ -5,7 +5,7 @@ import lombok.Value;
 
 
 public enum Gender {
-       MALE("Мужчина"), FEMALE("Женьщина");
+       MALE("Мужчина"), FEMALE("Женщина");
        private String gender;
        Gender(String gender){
               this.gender = gender;

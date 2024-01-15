@@ -53,7 +53,7 @@ public class Main {
     public static void congratulation(LocalDate date, List<Employee> emps) {
 
         if (date.getMonth().equals(Month.MARCH) && date.getDayOfMonth() == 8) {
-            emps.stream().filter(e -> e.getGender().equals("Женьщина"))
+            emps.stream().filter(e -> e.getGender().equals("Женщина"))
                     .forEach(e -> System.out.println("С 8 марта " + e.getName() + "!"));
         }
         else if (date.getMonth().equals(Month.FEBRUARY) && date.getDayOfMonth() == 23) {
