@@ -10,6 +10,7 @@ import kit.develop.java.seminar_2.canvas.draw_pic.sprites.Picture;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.util.Random;
 
 public class MainWindow extends JFrame implements CanvasRepaintListener, Thread.UncaughtExceptionHandler {
@@ -24,6 +25,7 @@ public class MainWindow extends JFrame implements CanvasRepaintListener, Thread.
     private int countSprites;
 
     public MainWindow(){
+        Thread.setDefaultUncaughtExceptionHandler(this);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(WIDTH, HEIGHT);
         setTitle(TITLE);
@@ -35,6 +37,13 @@ public class MainWindow extends JFrame implements CanvasRepaintListener, Thread.
         addMouseListener(new MouseListener(this));
 
         setVisible(true);
+    }
+
+    @Override
+    public void uncaughtException(Thread t, Throwable e) {
+        JOptionPane.showMessageDialog(
+                null, e.getMessage(), "Exception!", JOptionPane.ERROR_MESSAGE
+        );
     }
 
     private void initSprites() {
@@ -76,10 +85,10 @@ public class MainWindow extends JFrame implements CanvasRepaintListener, Thread.
         }
     }
 
-    @Override
-    public void uncaughtException(Thread t, Throwable e) {
-        if (e instanceof PictureOverflowException){
-            System.out.println(e.getMessage());
-        }
-    }
+//    @Override
+//    public void uncaughtException(Thread t, Throwable e) {
+//        if (e instanceof PictureOverflowException){
+//            System.out.println(e.getMessage());
+//        }
+//    }
 }
