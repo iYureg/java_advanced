@@ -10,7 +10,7 @@ public class Streams {
 
         List<Department> departmentList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-         departmentList.add(new Department("Department #" + i));
+            departmentList.add(new Department("Department #" + i));
         }
 
         List<Person> persons = new ArrayList<>();
@@ -62,8 +62,8 @@ public class Streams {
         // Собрать в Map<String, Person> - в которой ключ - имя отдела, значение - сотрудник с самой высокой зарплатой в этом отделе
         Comparator<Person> salaryComparator = Comparator.comparing(Person::getSalary);
         Map<String, Person> maxSalary = persons.stream()
-                .collect(Collectors.toMap(it -> it.getDepartment().getName() , Function.identity(), (first, second) -> {
-                    if(salaryComparator.compare(first, second) > 0){
+                .collect(Collectors.toMap(it -> it.getDepartment().getName(), Function.identity(), (first, second) -> {
+                    if (salaryComparator.compare(first, second) > 0) {
                         return first;
                     }
                     return second;
@@ -77,6 +77,25 @@ public class Streams {
         private int age;
         private double salary;
         private Department department;
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        public void setSalary(double salary) {
+            this.salary = salary;
+        }
+
+        public void setDepartment(Department department) {
+            this.department = department;
+        }
+
+        public Person() {
+        }
 
         public Person(String name, int age, double salary, Department department) {
             this.name = name;
@@ -120,6 +139,13 @@ public class Streams {
         }
 
         public Department(String name) {
+            this.name = name;
+        }
+
+        public Department() {
+        }
+
+        public void setName(String name) {
             this.name = name;
         }
 
