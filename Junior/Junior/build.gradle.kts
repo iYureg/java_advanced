@@ -25,6 +25,10 @@ dependencies {
     // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
     implementation("org.hibernate.orm:hibernate-core:6.4.4.Final")
 
+    // https://mvnrepository.com/artifact/com.h2database/h2
+    testImplementation("com.h2database:h2:2.2.224")
+
+
 
 }
 
