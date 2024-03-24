@@ -4,6 +4,8 @@ package gb.junior.webinar_4_hibernate.homework;
 import gb.junior.webinar_4_hibernate.homework.controller.DBHandler;
 import gb.junior.webinar_4_hibernate.homework.model.Student;
 
+import java.util.List;
+
 public class App {
 
     /**
@@ -21,12 +23,14 @@ public class App {
 
         // create
         for (int i = 0; i < 10; i++) {
-            DBHandler.add(new Student("name_" + i, "surname_" + i, 20 + i));
+            DBHandler.add(new Student("name_" + i, "surname_" + i, 15 + i));
         }
 
         // read
-        DBHandler.showTable();
-
+//        DBHandler.showTable();
+        List<Student> adultStudents = DBHandler.findByAge(20);
+        assert adultStudents != null;
+        adultStudents.forEach(System.out::println);
 
         // update
 //        DBHandler.updateById(5);

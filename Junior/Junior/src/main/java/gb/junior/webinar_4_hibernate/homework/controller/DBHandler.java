@@ -7,6 +7,7 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class DBHandler {
 
@@ -30,6 +31,20 @@ public class DBHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<Student> findByAge(int age) {
+        Connector connector = new Connector();
+        try (Session session = connector.getSession()) {
+
+            return session.createQuery("from Student ", Student.class)
+                    .stream()
+                    .filter(student -> student.getAge() > age)
+                    .toList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void updateById(int id) {
